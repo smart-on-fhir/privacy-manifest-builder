@@ -14,22 +14,22 @@ function App() {
           </a>
         </div>
       </nav>
-      <main className="container-fluid" style={{ minHeight: "calc(100vh - 93px)" }}>
+      <main className="container-fluid">
         <br/>
         <br/>
         <div className="container-fluid">
-        TODO: Render questions...
+          TODO: Render questions here...
         </div>
         <br/>
         <br/>
       </main>
-      <footer>
-        <div className="card-footer text-muted text-center">
-          <div className="container-fluid">
-            Read more about the SMART Privacy Manifest <a href="#">here</a>
+      <nav className="navbar fixed-bottom navbar-light bg-light">
+        <div className="container-fluid">
+          <div className="text-muted">
+            Read more about the SMART Privacy Manifest <a href="/" target="_blank" rel="noreferrer">here</a>
           </div>
         </div>
-      </footer>
+      </nav>
     </div>
   );
 }
