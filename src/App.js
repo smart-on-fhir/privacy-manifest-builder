@@ -21,7 +21,7 @@ function generateQuestionnaireResponse(state) {
     identifier: {
       value: "<app-resource-identifying-uri>"
     },
-    authored: "<last updated privacy manifest>",
+    authored: new Date().toISOString(),
     item: questionnaire.item.map(item => {
       return {
         linkId: item.linkId,
