@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/privacy-manifest-builder/static/js/main.6141a001.chunk.js",
-    "main.js.map": "/privacy-manifest-builder/static/js/main.6141a001.chunk.js.map",
+    "main.js": "/privacy-manifest-builder/static/js/main.0bd77881.chunk.js",
+    "main.js.map": "/privacy-manifest-builder/static/js/main.0bd77881.chunk.js.map",
     "runtime-main.js": "/privacy-manifest-builder/static/js/runtime-main.091e2c69.js",
     "runtime-main.js.map": "/privacy-manifest-builder/static/js/runtime-main.091e2c69.js.map",
     "static/js/2.caca913e.chunk.js": "/privacy-manifest-builder/static/js/2.caca913e.chunk.js",
@@ -13,6 +13,6 @@
   "entrypoints": [
     "static/js/runtime-main.091e2c69.js",
     "static/js/2.caca913e.chunk.js",
-    "static/js/main.6141a001.chunk.js"
+    "static/js/main.0bd77881.chunk.js"
   ]
 }
