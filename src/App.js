@@ -240,7 +240,7 @@ function App() {
               <a
                 onClick={beforeDownload} 
                 className={"btn btn-primary float-right"}
-                href={"data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state.answers, null, 2))}
+                href={"data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(generateQuestionnaireResponse(state), null, 2))}
                 download="privacy-manifest.json"
                 style={{ margin: "-4px 0" }}
               >Download</a>
