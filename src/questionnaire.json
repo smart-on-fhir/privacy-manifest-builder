@@ -60,6 +60,15 @@
                               "value": "Already collected patient data is preserved by the developer for future use after an account closes."
                            }
                         ]
+                     },
+                     {
+                        "code": "removed-when-deactivated",
+                        "display": "Removed upon deactivation",
+                        "designation": [
+                           {
+                              "value": "Previously collected patient data is deleted upon account deactivation."
+                           }
+                        ]
                      }
                   ],
                   "system": "http://fhir-registry.smarthealthit.org/ValueSet/vs-privacymanifest-data-storage-policy"
@@ -83,11 +92,11 @@
                {
                   "concept": [
                      {
-                        "code": "servicemachine-learning",
-                        "display": "Machine Learning",
+                        "code": "primary-only",
+                        "display": "Patient Care Only",
                         "designation": [
                            {
-                              "value": "Patient data is used for machine learning."
+                              "value": "Patient data is used only for directly improving care quality of the patient."
                            }
                         ]
                      },
@@ -106,6 +115,15 @@
                         "designation": [
                            {
                               "value": "Select this if you are using patient data for population analytics."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "servicemachine-learning",
+                        "display": "Machine Learning",
+                        "designation": [
+                           {
+                              "value": "Patient data is used for machine learning."
                            }
                         ]
                      },
@@ -229,6 +247,15 @@
                         "designation": [
                            {
                               "value": "Patients may opt out from the developer selling their de-identified data."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "no-selling",
+                        "display": "Never sold",
+                        "designation": [
+                           {
+                              "value": "Patient data is never sold by the developer in any form."
                            }
                         ]
                      }
@@ -411,12 +438,12 @@
          "answerValueSet": "#vs-data-storage-policy",
          "linkId": "data-storage-policy",
          "repeats": true,
-         "text": "Please select items that best describe your policies related to patient data storage",
+         "text": "Please select items that best describe your policies related to patient data storage.",
          "type": "choice",
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Storage Policy"
+               "valueString": "Data Storage Policies"
             }
          ]
       },
@@ -429,7 +456,7 @@
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Usage Policy"
+               "valueString": "Data Usage Insights"
             }
          ]
       },
@@ -442,7 +469,7 @@
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Sharing Policy"
+               "valueString": "Data Sharing Policies"
             }
          ]
       },
@@ -455,7 +482,7 @@
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Selling Policy"
+               "valueString": "Data Selling Policies"
             }
          ]
       },
@@ -468,7 +495,7 @@
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Patient Data Access Policy"
+               "valueString": "Patient Data Access Policies"
             }
          ]
       },
