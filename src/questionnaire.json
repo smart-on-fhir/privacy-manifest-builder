@@ -9,37 +9,64 @@
                   "concept": [
                      {
                         "code": "location-<US>",
-                        "display": "LOCATION-<US>",
-                        "designation": [
+                        "display": "US Partner",
+                        "designation":[ 
                            {
-                              "value": "Select this if you are storing data at location within US"
+                           "value":"Patient health data is stored by a business partner of the developer at a physical location in the United States."
                            }
-                        ]
+                           ]
                      },
                      {
                         "code": "Cloud",
-                        "display": "CLOUD",
+                        "display": "Cloud",
                         "designation": [
                            {
-                              "value": "Select this if you are storing data in the cloud"
+                              "value": "Patient health data is stored securely in the cloud."
                            }
                         ]
                      },
                      {
                         "code": "Local",
-                        "display": "LOCAL",
+                        "display": "Local",
                         "designation": [
                            {
-                              "value": "Select this if you are physically storing data at your location"
+                              "value": "Patient health data is only stored locally by the developer."
                            }
                         ]
                      },
                      {
                         "code": "Encrypted",
-                        "display": "ENCRYPTED",
+                        "display": "Encrypted",
                         "designation": [
                            {
-                              "value": "Select this if you are storing encrypted data"
+                              "value": "Patient health data is end-to-end encrypted."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "deleted",
+                        "display": "Deleted upon request",
+                        "designation": [
+                           {
+                              "value": "Stored patient data is automatically deleted upon removal of consent."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "kept",
+                        "display": "Held for future use",
+                        "designation": [
+                           {
+                              "value": "Already collected patient data is preserved by the developer for future use after an account closes."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "removed-when-deactivated",
+                        "display": "Removed upon deactivation",
+                        "designation": [
+                           {
+                              "value": "Previously collected patient data is deleted upon account deactivation."
                            }
                         ]
                      }
@@ -65,29 +92,47 @@
                {
                   "concept": [
                      {
-                        "code": "servicemachine-learning",
-                        "display": "SERVICEMACHINE-LEARNING",
+                        "code": "primary-only",
+                        "display": "Patient Care Only",
                         "designation": [
                            {
-                              "value": "Select this if you are using patient data for machine learning"
+                              "value": "Patient data is used only for directly improving care quality of the patient."
                            }
                         ]
                      },
                      {
                         "code": "research",
-                        "display": "RESEARCH",
+                        "display": "Approved Research",
                         "designation": [
                            {
-                              "value": "Select this if you are using patient data for research purposes"
+                              "value": "Patient data is used for IRB-approved research purposes."
                            }
                         ]
                      },
                      {
                         "code": "population-analytics",
-                        "display": "POPULATION-ANALYTICS",
+                        "display": "Population analytics",
                         "designation": [
                            {
-                              "value": "Select this if you are using patient data for population analytics"
+                              "value": "Select this if you are using patient data for population analytics."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "servicemachine-learning",
+                        "display": "Machine Learning",
+                        "designation": [
+                           {
+                              "value": "Patient data is used for machine learning."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "potential-impact",
+                        "display": "Potential Family Impact",
+                        "designation": [
+                           {
+                              "value": "This app collects and/or shares genetic and/or family history data that may impact people other than the patient giving access."
                            }
                         ]
                      }
@@ -114,19 +159,46 @@
                   "concept": [
                      {
                         "code": "Deidentified",
-                        "display": "DEIDENTIFIED",
+                        "display": "Sharing (without identifiers)",
                         "designation": [
                            {
-                              "value": "Select this if you are sharing de-identified patient data"
+                              "value": "Identifying information are removed from patient data, which are later shared with partners."
                            }
                         ]
                      },
                      {
                         "code": "only-to-hippa-organizations",
-                        "display": "ONLY-TO-HIPAA-ORGANIZATIONS",
+                        "display": "Sharing (HIPAA)",
                         "designation": [
                            {
-                              "value": "Select this if you are sharing patient data but ONLY with HIPAA compliant organization"
+                              "value": "Patient data are shared ONLY with HIPAA business associates as part of care."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "one-time",
+                        "display": "One-off sharing",
+                        "designation": [
+                           {
+                              "value": "Patient data are only collected and shared for an initial period of time as described in the full privacy policy. Collection and sharing outside that window require additional consent."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "continuous",
+                        "display": "Continuous sharing",
+                        "designation": [
+                           {
+                              "value": "Once permission is obtained, patient data are collected and shared continuously as needed until permission is revoked by the patient."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "opt-out-of-transfer",
+                        "display": "Optional transfer",
+                        "designation": [
+                           {
+                              "value": "In the event of transfer of ownership or sale of company, the developer allows patients the option to deny transfer of data to the new company."
                            }
                         ]
                      }
@@ -153,19 +225,37 @@
                   "concept": [
                      {
                         "code": "deidentified",
-                        "display": "DEIDENTIFIED",
+                        "display": "Selling (no identifiers)",
                         "designation": [
                            {
-                              "value": "Select this if you are selling deidentified patient data"
+                              "value": "Identifying information are removed from patient data, which are later sold to partners."
                            }
                         ]
                      },
                      {
                         "code": "with-consent",
-                        "display": "WITH-CONSENT",
+                        "display": "Selling (OPT IN)",
                         "designation": [
                            {
-                              "value": "Select this if you are selling patient data with consent"
+                              "value": "Patients must opt in for the developer to sell their de-identified data."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "with-consent",
+                        "display": "Selling (OPT OUT)",
+                        "designation": [
+                           {
+                              "value": "Patients may opt out from the developer selling their de-identified data."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "no-selling",
+                        "display": "Never sold",
+                        "designation": [
+                           {
+                              "value": "Patient data is never sold by the developer in any form."
                            }
                         ]
                      }
@@ -181,6 +271,93 @@
          "status": "active",
          "title": "SMART Privacy Manifest ValueSet Data Selling",
          "url": "http://fhir-registry.smarthealthit.org/ValueSet/vs-privacymanifest-data-selling-policy",
+         "version": "0.1",
+         "resourceType": "ValueSet"
+      },
+      {
+         "id": "vs-patient-access-policy",
+         "compose": {
+            "include": [
+               {
+                  "concept": [
+                     {
+                        "code": "patient-read",
+                        "display": "Transparent",
+                        "designation": [
+                           {
+                              "value": "This app allows Patients to request to view all data the developer collects."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "patient-write",
+                        "display": "Interactive",
+                        "designation": [
+                           {
+                              "value": "Patient can add comments and/or corrections to data collected on them, and corrected/annotated data are sent to partners where applicable."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "managed",
+                        "display": "No Access",
+                        "designation": [
+                           {
+                              "value": "This app does not help patients view or mark up data collected on them."
+                           }
+                        ]
+                     }
+                  ],
+                  "system": "http://fhir-registry.smarthealthit.org/ValueSet/vs-patient-access-policy"
+               }
+            ]
+         },
+         "description": "Glossary items for declaring patient access policy of apps through the privacy manifest",
+         "experimental": true,
+         "name": "SMART Privacy Manifest ValueSet Patient Data Access",
+         "publisher": "SMART Health IT",
+         "status": "active",
+         "title": "SMART Privacy Manifest ValueSet Patient Data Access",
+         "url": "http://fhir-registry.smarthealthit.org/ValueSet/vs-patient-access-policy",
+         "version": "0.1",
+         "resourceType": "ValueSet"
+      },
+      {
+         "id": "vs-patient-updates",
+         "compose": {
+            "include": [
+               {
+                  "concept": [
+                     {
+                        "code": "policy-only",
+                        "display": "Policy URL Only",
+                        "designation": [
+                           {
+                              "value": "This app does not contact patients to provide updated privacy policies."
+                           }
+                        ]
+                     },
+                     {
+                        "code": "email",
+                        "display": "Email",
+                        "designation": [
+                           {
+                              "value": "Patients can opt in to receiving updates to this app's privacy policy by email."
+                           }
+                        ]
+                     }
+                  ],
+                  "system": "http://fhir-registry.smarthealthit.org/ValueSet/vs-patient-updates"
+               }
+            ]
+         },
+         "description": "Glossary items for declaring data share policy of apps through the privacy manifest",
+         "experimental": true,
+         "name": "SMART Privacy Manifest ValueSet Updates to Privacy Policy",
+         "publisher": "SMART Health IT",
+         "status": "active",
+         "title": "SMART Privacy Manifest ValueSet Updates to Privacy Policy",
+         "url": "http://fhir-registry.smarthealthit.org/ValueSet/vs-patient-updates",
          "version": "0.1",
          "resourceType": "ValueSet"
       },
@@ -220,8 +397,13 @@
                {
                   "concept": [
                      {
-                        "code": "carrin-alliance",
-                        "display": "CARRIN-ALLIANCE"
+                        "code": "carin-alliance",
+                        "display": "CARIN Code of Condut",
+                        "designation": [
+                           {
+                              "value": "This app upholds the CARIN alliance Code of Conduct (https://www.carinalliance.com/wp-content/uploads/2020/07/2020_CARIN_Code_of_Conduct_May-2020.pdf)."
+                           }
+                        ]
                      }
                   ],
                   "system": "http://fhir-registry.smarthealthit.org/ValueSet/vs-privacymanifest-compliance-certs"
@@ -256,12 +438,12 @@
          "answerValueSet": "#vs-data-storage-policy",
          "linkId": "data-storage-policy",
          "repeats": true,
-         "text": "Please select items that best describe your policy related to patient data storage",
+         "text": "Please select items that best describe your policies related to patient data storage.",
          "type": "choice",
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Storage Policy"
+               "valueString": "Data Storage Policies"
             }
          ]
       },
@@ -269,12 +451,12 @@
          "answerValueSet": "#vs-data-usage-policy",
          "linkId": "data-usage-policy",
          "repeats": true,
-         "text": "Please select items that best describe your privacy-policy related to patient data usage",
+         "text": "Please select items that best describe your privacy policies related to usage of collected patient data.",
          "type": "choice",
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Usage Policy"
+               "valueString": "Data Usage Insights"
             }
          ]
       },
@@ -282,12 +464,12 @@
          "answerValueSet": "#vs-data-sharing-policy",
          "linkId": "data-sharing-policy",
          "repeats": true,
-         "text": "Please select items that best describe your privacy-policy related to patient data sharing",
+         "text": "Please select items that best describe your privacy policies related to patient data sharing.",
          "type": "choice",
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Sharing Policy"
+               "valueString": "Data Sharing Policies"
             }
          ]
       },
@@ -295,12 +477,25 @@
          "answerValueSet": "#vs-data-selling-policy",
          "linkId": "data-selling-policy",
          "repeats": true,
-         "text": "Please select items that best describe your privacy-policy related to patient data selling",
+         "text": "Please select items that best describe your privacy policies related to patient data selling.",
          "type": "choice",
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
-               "valueString": "Data Selling Policy"
+               "valueString": "Data Selling Policies"
+            }
+         ]
+      },
+      {
+         "answerValueSet": "#vs-patient-access-policy",
+         "linkId": "patient-access-policy",
+         "repeats": true,
+         "text": "Please select items that best describe your privacy policies related to patient data access.",
+         "type": "choice",
+         "extension": [
+            {
+               "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
+               "valueString": "Patient Data Access Policies"
             }
          ]
       },
@@ -308,7 +503,7 @@
          "answerValueSet": "#vs-compliance-certs",
          "linkId": "compliance-certs",
          "repeats": true,
-         "text": "Please select trust certificates you have obtained",
+         "text": "Please select trust certificates you have obtained.",
          "type": "choice",
          "extension": [
             {
@@ -319,13 +514,26 @@
       },
       {
          "linkId": "privacy-policy-uri",
-         "text": "Please type in the link to your app's privacy policy",
+         "text": "Please type in a link to your app's full privacy policy.",
          "type": "url",
          "required": false,
          "extension": [
             {
                "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
                "valueString": "Privacy Policy"
+            }
+         ]
+      },
+      {
+         "answerValueSet": "#vs-patient-updates",
+         "linkId": "patient-updates",
+         "repeats": true,
+         "text": "Please select items that best describe your policy related to informing patients of updates to privacy policies.",
+         "type": "choice",
+         "extension": [
+            {
+               "url": "http://fhir-registry.smarthealthit.org/extensions/questionnaire-item-label",
+               "valueString": "Policy Updates"
             }
          ]
       }
