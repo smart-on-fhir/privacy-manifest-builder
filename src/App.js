@@ -9,7 +9,8 @@ const initialState = {
   answers: questionnaire.item.reduce((prev, e) => {
     prev[e.linkId] = [];
     return prev
-  }, {})
+  }, {}),
+  showPreview: false
 };
 
 function previewDataUsage(state) {
@@ -193,22 +194,18 @@ function list(items) {
 
 function preview(state) {
   return (
-    <div class="list-group" style={{ 
-      position: "fixed",
-      top: 60,
-      right: 8,
-      bottom: 50,
-      maxWidth: 360,
-      overflow: "auto",
-      zIndex: 2,
-      background: "#FFF"
-    }}>
+    // <div className="list-group" style={{ 
+    //   // position: "fixed",
+    //   // top: 60,
+    //   // right: 8,
+    //   // bottom: 50,
+    //   // maxWidth: 360,
+    //   // overflow: "auto",
+    //   // zIndex: 2,
+    //   fontSize: 14
+    // }}>
     <Preview state={state}/>
-    {/* {previewDataStorage(state)}
-    {previewDataUsage(state)} */}
-    {/* {dataStorage.text.join("\n")} */}
-    {/* { JSON.stringify(state, null, 2)} */}
-    </div>
+    // </div>
   )
 }
 
@@ -308,6 +305,13 @@ function reducer(state, action) {
         ...state,
         answers
       }
+
+    case "SHOW_PREVIEW":
+      return { ...state, showPreview: true }
+
+    case "HIDE_PREVIEW":
+      return { ...state, showPreview: false }
+
     default:
         return state
   }
@@ -416,7 +420,35 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div className="App">
+    <>
+    { state.showPreview && (
+        <div className="modal" style={{ display: "block", background: "rgba(0, 0, 0, 0.3)" }}>
+          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="staticBackdropLabel">Preview</h5>
+                <button type="button" className="close" onClick={() => dispatch({ type: "HIDE_PREVIEW" }) }>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p className="alert alert-info">
+                  <i className="fas fa-info-circle text-info"/> <small>Upon launching the app the user may be
+                  presented with a summary similar to this one. The user might then decide not to launch the
+                  app if he/she does not agree with your privacy statements.</small>
+                </p>
+                <div className="list-group">
+                  <Preview state={state}/>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary" onClick={() => dispatch({ type: "HIDE_PREVIEW" }) }>Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="App">
       <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <a className="navbar-brand" href="/">
@@ -426,9 +458,15 @@ function App() {
               marginRight: "1ex"
             }} /> Privacy Manifest Builder
           </a>
+          <button
+            type="button"
+            className="btn btn-info float-right"
+            style={{ margin: "-4px 0" }}
+            onClick={() => dispatch({ type: "SHOW_PREVIEW" }) }>
+            Preview
+          </button>
         </div>
       </nav>
-      {preview(state)}
       <main className="container" style={{ fontSize: "14px" }}>
         <br/>
         <br/>
@@ -440,7 +478,7 @@ function App() {
             <h4 className="card-header">
               <a
                 onClick={beforeDownload} 
-                className={"btn btn-primary float-right"}
+                className="btn btn-primary float-right"
                 href={"data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(generateQuestionnaireResponse(state), null, 2))}
                 download="privacy-manifest.json"
                 style={{ margin: "-4px 0" }}
@@ -467,6 +505,7 @@ function App() {
         </div>
       </nav>
     </div>
+    </>
   );
 }
 
